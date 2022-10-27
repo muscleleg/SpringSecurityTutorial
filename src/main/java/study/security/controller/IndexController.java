@@ -49,7 +49,7 @@ public class IndexController {
         String rawPassword = user.getPassword();
         String encPassword = bCryptPasswordEncoder.encode(rawPassword);
         user.setPassword(encPassword);
-        userRepository.save(user);//회원가입 잘됨. 하지만 시큐리티로 로그인 할 수 없음 ->암호화가 되어있지않기때문에
+        userRepository.save(user);//rawPassword를 넣을시 회원가입 잘됨. 하지만 시큐리티로 로그인 할 수 없음 ->암호화가 되어있지않기때문에
         return "redirect:/loginForm";
     }
 
